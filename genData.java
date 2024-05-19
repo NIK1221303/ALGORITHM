@@ -5,8 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class genData {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         Random rand = new Random(1211103426);
+       //Random rand = new Random();
 
         int[] set1 = new int[100];
         int[] set2 = new int[1000];
@@ -14,32 +18,52 @@ public class genData {
         int[] set4 = new int[100000];
         int[] set5 = new int[500000];
         int[] set6 = new int[1000000];
+        boolean flag = false;
 
         for (int i = 0; i < 1000000; i++) {
 
             if (i < 100) {
-                set1[i] = rand.nextInt(1000);
-                
+
+                do {
+                    set1[i] = rand.nextInt(700);
+                    flag = check(set1[i]);
+                } while (!flag);
+
             }
 
             if (i < 1000) {
-                set2[i] = rand.nextInt(1000);
+                do {
+                    set2[i] = rand.nextInt(700);
+                    flag = check(set2[i]);
+                } while (!flag);
             }
 
             if (i < 10000) {
-                set3[i] = rand.nextInt(1000);
+                do {
+                    set3[i] = rand.nextInt(700);
+                    flag = check(set3[i]);
+                } while (!flag);
             }
 
             if (i < 100000) {
-                set4[i] = rand.nextInt(1000);
+                do {
+                    set4[i] = rand.nextInt(700);
+                    flag = check(set4[i]);
+                } while (!flag);
             }
 
             if (i < 500000) {
-                set5[i] = rand.nextInt(1000);
+                do {
+                    set5[i] = rand.nextInt(700);
+                    flag = check(set5[i]);
+                } while (!flag);
             }
 
             if (i < 1000000) {
-                set6[i] = rand.nextInt(1000);
+                do {
+                    set6[i] = rand.nextInt(700);
+                    flag = check(set6[i]);
+                } while (!flag);
             }
         }
 
@@ -63,8 +87,22 @@ public class genData {
 
         }
 
-       // System.out.println(Arrays.toString(set1));
-       // System.out.println(Arrays.toString(set2));
+        // System.out.println(Arrays.toString(set1));
+        // System.out.println(Arrays.toString(set2));
 
+    }
+
+    public static boolean check(int number) {
+
+        String result = String.valueOf(number);
+        char[] split = result.toCharArray();
+
+        for (char num : split) {
+            if (num == '5' || num == '7' || num == '8' || num == '9') {
+                return false;
+
+            }
+        }
+        return true;
     }
 }
