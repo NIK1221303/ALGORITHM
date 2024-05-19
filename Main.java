@@ -18,18 +18,14 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
+
         int choice = input.nextInt();
 
         if (choice == 1)
             sel.sort();
         else 
             heap.sort();
-        
-        // user input 
-        // user choice (heap /  selection)
-        // if statement ... sort
 
-       
         input.close();
     }
 
