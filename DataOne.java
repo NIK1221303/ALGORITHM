@@ -1,24 +1,26 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DataOne {
-    private int[] data;
+    private ArrayList<Integer> data;
 
     public DataOne(int size) {
-        data = new int[size];
+        data = new ArrayList<>();
     }
 
     public void loadData(String line) {
-        data = Arrays.stream(line.replaceAll("[\\[\\]]", "").split(", "))
-                     .mapToInt(Integer::parseInt)
-                     .toArray();
+        data = new ArrayList<>();
+        Arrays.stream(line.replaceAll("[\\[\\]]", "").split(", "))
+              .mapToInt(Integer::parseInt)
+              .forEach(data::add);
     }
 
-    public int[] getData() {
+    public ArrayList<Integer> getData() {
         return data;
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(data);
+        return data.toString();
     }
 }
