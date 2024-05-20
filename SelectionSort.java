@@ -1,4 +1,8 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SelectionSort implements Sort {
 
@@ -10,6 +14,14 @@ public class SelectionSort implements Sort {
 
     public void sort() {
         data.retrieveData("Dataset1.txt");
+
+
+        // Reset the file at the beginning of the sort method
+        try (FileWriter fileWriter = new FileWriter("SelectionAlgo.txt")) {
+            fileWriter.write("");
+        } catch (IOException e) {
+            System.out.println(e);
+        }
 
         // Example usage
         // System.out.println(data.getSet(0).getData().get(0)); // set1
@@ -32,10 +44,8 @@ public class SelectionSort implements Sort {
         sampleData2.add(2);
         sampleData2.add(4);
 
-  
         samples.add(sampleData1);
         samples.add(sampleData2);
-             
 
         for (int setIndex = 0; setIndex < samples.size(); setIndex++) {
 
@@ -61,7 +71,7 @@ public class SelectionSort implements Sort {
                             y = samples.get(setIndex).get(j);
                             yIndex = j;
                         }
-                       
+
                         swapFlag = 1; // true
                     }
 
@@ -72,7 +82,7 @@ public class SelectionSort implements Sort {
                         samples.get(setIndex).set(i, x); // smaller value take smaller value index
 
                         swapFlag = 0; // reset
-                        y = 0; //reset 
+                        y = 0; // reset
                         System.out.println(samples.get(setIndex));
 
                     }
@@ -92,7 +102,7 @@ public class SelectionSort implements Sort {
             int swapFlag = 0; // false
             int currentItem = data.getSet(setIndex).getData().size() - 1;
             int yIndex = 0; // Bigger Item Index
-            int x = data.getSet(setIndex).getData().get(currentItem); // currentItem 
+            int x = data.getSet(setIndex).getData().get(currentItem); // currentItem
 
             long startTime = System.nanoTime();
 
@@ -107,7 +117,7 @@ public class SelectionSort implements Sort {
                             y = data.getSet(setIndex).getData().get(j);
                             yIndex = j;
                         }
-                       
+
                         swapFlag = 1; // true
                     }
 
@@ -118,8 +128,8 @@ public class SelectionSort implements Sort {
                         data.getSet(setIndex).getData().set(i, x); // smaller value take smaller value index
 
                         swapFlag = 0; // reset
-                        y = 0; //reset 
-                        //System.out.println(data.getSet(setIndex).getData());
+                        y = 0; // reset
+                        // System.out.println(data.getSet(setIndex).getData());
 
                     }
                 }
@@ -128,6 +138,21 @@ public class SelectionSort implements Sort {
             long endTime = System.nanoTime();
             long duration = (endTime - startTime); // in nanoseconds
             System.out.println("Execution time in nanoseconds: " + (duration) + "ns\n");
+
+            // Append sorted set to text file
+            try (FileWriter fileWriter = new FileWriter("SelectionAlgo.txt", true)) { // true for append mode
+                fileWriter.write("## SET " + (setIndex + 1) + " ##\n");
+                StringBuilder line = new StringBuilder("[");
+                for (Integer value : data.getSet(setIndex).getData()) {
+                    line.append(value).append(", ");
+                }
+                fileWriter.write(line.substring(0, line.length() - 2) + "]\n"); // Remove trailing comma and space, add closing bracket
+                fileWriter.write("\n");
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+
         }
+
     }
 }
