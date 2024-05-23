@@ -5,8 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class GenDataOne {
-    public static void main(String[] args) {
 
+    public GenDataOne() {
+        generateData();
+    }
+
+    public void generateData() {
         boolean flag = false;
         Random rand = new Random(1211103426);
 
@@ -18,14 +22,11 @@ public class GenDataOne {
         int[] set6 = new int[1000000];
 
         for (int i = 0; i < 1000000; i++) {
-
             if (i < 100) {
-
                 do {
                     set1[i] = rand.nextInt(700);
                     flag = check(set1[i]);
                 } while (!flag);
-
             }
 
             if (i < 1000) {
@@ -63,8 +64,12 @@ public class GenDataOne {
                 } while (!flag);
             }
         }
+
         try {
             File file = new File("Dataset1.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             if (file.exists() && file.isFile() && file.canWrite()) {
                 FileWriter fileWriter = new FileWriter(file);
                 fileWriter.write(Arrays.toString(set1) + "\n");
@@ -76,16 +81,11 @@ public class GenDataOne {
 
                 fileWriter.close();
             } else {
-                System.out.println("cannot write");
+                System.out.println("Cannot write to the file");
             }
         } catch (IOException e) {
             System.out.println(e);
-
         }
-
-       // System.out.println(Arrays.toString(set1));
-       // System.out.println(Arrays.toString(set2));
-
     }
 
     public static boolean check(int number) {

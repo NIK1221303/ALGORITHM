@@ -2,7 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class GenDataTwo {
-    public static void main(String[] args) {
+
+    public GenDataTwo() {
+        generateData();
+    }
+
+    public void generateData() {
         // Initialize the ArrayList to store HashMaps
         ArrayList<HashMap<String, Object>> starList = generateRandomStars();
 
@@ -14,11 +19,11 @@ public class GenDataTwo {
         // Save the generated star data to a file
         String fileName = "Dataset2.txt";
         saveStarsToFile(starList, fileName);
+
     }
 
     public static ArrayList<HashMap<String, Object>> generateRandomStars() {
         ArrayList<HashMap<String, Object>> starList = new ArrayList<>();
-
 
         // Generate data for 20 stars
         for (char starName = 'A'; starName <= 'T'; starName++) {
@@ -54,12 +59,12 @@ public class GenDataTwo {
         }
     }
 
-    // 
+    //
     private static int generateRandomValue(int numDigits) {
         // insert seed (1211103426 + 1211100965 + 1221303804 = 3643508195)
-        //long seed = 3643508195L;
+        // long seed = 3643508195L;
         Random rand = new Random();
-        int[] allowedDigits = {3, 6, 4, 5, 0, 8, 1, 9};
+        int[] allowedDigits = { 3, 6, 4, 5, 0, 8, 1, 9 };
 
         StringBuilder value = new StringBuilder();
         for (int i = 0; i < numDigits; i++) {

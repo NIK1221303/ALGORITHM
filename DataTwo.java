@@ -1,63 +1,17 @@
 import java.io.*;
 import java.util.*;
+import java.lang.Math;
 
 public class DataTwo {
 
-    public static HashMap<String, Object> getStarByName(ArrayList<HashMap<String, Object>> starList, String starName) {
-        for (HashMap<String, Object> star : starList) {
-            if (starName.equals(star.get("name"))) {
-                return star;
-            }
-        }
-        return null;
+    public DataTwo() {
+        loadData();
     }
 
-    public static List<Integer> getAllX(ArrayList<HashMap<String, Object>> starList) {
-        List<Integer> allX = new ArrayList<>();
-        for (HashMap<String, Object> star : starList) {
-            allX.add((Integer) star.get("x"));
-        }
-        return allX;
-    }
+    // Initialize the ArrayList to store HashMaps
+    static ArrayList<HashMap<String, Object>> starList = new ArrayList<>();
 
-    public static List<Integer> getAllY(ArrayList<HashMap<String, Object>> starList) {
-        List<Integer> allY = new ArrayList<>();
-        for (HashMap<String, Object> star : starList) {
-            allY.add((Integer) star.get("y"));
-        }
-        return allY;
-    }
-
-    public static List<Integer> getAllZ(ArrayList<HashMap<String, Object>> starList) {
-        List<Integer> allZ = new ArrayList<>();
-        for (HashMap<String, Object> star : starList) {
-            allZ.add((Integer) star.get("y"));
-        }
-        return allZ;
-    }
-
-    public static List<Integer> getAllProfit(ArrayList<HashMap<String, Object>> starList) {
-        List<Integer> allProfit = new ArrayList<>();
-        for (HashMap<String, Object> star : starList) {
-            allProfit.add((Integer) star.get("profit"));
-        }
-        return allProfit;
-    }
-
-    public static List<Integer> getAllWeight(ArrayList<HashMap<String, Object>> starList) {
-        List<Integer> allWeight = new ArrayList<>();
-        for (HashMap<String, Object> star : starList) {
-            allWeight.add((Integer) star.get("weight"));
-        }
-        return allWeight;
-    }
-
-
-
-    public static void main(String[] args) {
-        // Initialize the ArrayList to store HashMaps
-        ArrayList<HashMap<String, Object>> starList = new ArrayList<>();
-
+    private void loadData() {
         // Read data from the text file
         String fileName = "Dataset2.txt"; // Change this to your actual file path
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -81,32 +35,70 @@ public class DataTwo {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-        // // Print out the contents of the ArrayList to verify
-        // for (HashMap<String, Object> star : starList) {
-        //     System.out.println(star);
-        // }
+    public HashMap<String, Object> getStarByName(ArrayList<HashMap<String, Object>> starList, String starName) {
+        for (HashMap<String, Object> star : starList) {
+            if (starName.equals(star.get("name"))) {
+                return star;
+            }
+        }
+        return null;
+    }
 
+    public List<Integer> getAllX(ArrayList<HashMap<String, Object>> starList) {
+        List<Integer> allX = new ArrayList<>();
+        for (HashMap<String, Object> star : starList) {
+            allX.add((Integer) star.get("x"));
+        }
+        return allX;
+    }
 
-        // Get specific star
-        System.out.println(getStarByName(starList, "Star A"));
+    public List<Integer> getAllY(ArrayList<HashMap<String, Object>> starList) {
+        List<Integer> allY = new ArrayList<>();
+        for (HashMap<String, Object> star : starList) {
+            allY.add((Integer) star.get("y"));
+        }
+        return allY;
+    }
 
-        // Get specific star value
-        System.out.println(getStarByName(starList, "Star A").get("name"));
-        System.out.println(getStarByName(starList, "Star A").get("x"));
-        System.out.println(getStarByName(starList, "Star A").get("y"));
-        System.out.println(getStarByName(starList, "Star A").get("z"));
-        System.out.println(getStarByName(starList, "Star A").get("weight"));
-        System.out.println(getStarByName(starList, "Star A").get("profit"));
+    public List<Integer> getAllZ(ArrayList<HashMap<String, Object>> starList) {
+        List<Integer> allZ = new ArrayList<>();
+        for (HashMap<String, Object> star : starList) {
+            allZ.add((Integer) star.get("y"));
+        }
+        return allZ;
+    }
 
+    public List<Integer> getAllProfit(ArrayList<HashMap<String, Object>> starList) {
+        List<Integer> allProfit = new ArrayList<>();
+        for (HashMap<String, Object> star : starList) {
+            allProfit.add((Integer) star.get("profit"));
+        }
+        return allProfit;
+    }
+
+    public List<Integer> getAllWeight(ArrayList<HashMap<String, Object>> starList) {
+        List<Integer> allWeight = new ArrayList<>();
+        for (HashMap<String, Object> star : starList) {
+            allWeight.add((Integer) star.get("weight"));
+        }
+        return allWeight;
+    }
+
+    public List<Integer> getStarDistance() {
+        List<Integer> starDistance = new ArrayList<>();
+
+        // get Distance 
+        for (int i = 1; i < getAllX(starList).size(); i++) {
+            double distance = Math.sqrt(
+            (Math.pow(2,(getAllX(starList).get(i) - getAllX(starList).get(i-1)))) + 
+            (Math.pow(2,(getAllY(starList).get(i) - getAllY(starList).get(i-1)))) + 
+            (Math.pow(2,(getAllZ(starList).get(i) - getAllZ(starList).get(i-1)))));
         
-        // Retrieve the 'x' values for all stars
-        List<Integer> xValues = getAllX(starList);
-        // Print the 'x' values
-        System.out.println("x values for all stars: " + xValues);
-
-
-        // later can use getAll... for calculation
-
+            // cast to Integer
+            starDistance.add((int)distance);
+        } 
+        return starDistance;
     }
 }
