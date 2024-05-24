@@ -13,10 +13,10 @@ public class GenDataTwo {
         // Initialize the ArrayList to store HashMaps
         ArrayList<HashMap<String, Object>> starList = generateRandomStars();
 
-        // Print the generated star data
-        for (HashMap<String, Object> star : starList) {
-            System.out.println(star);
-        }
+        // // Print the generated star data
+        // for (HashMap<String, Object> star : starList) {
+        //     System.out.println(star);
+        // }
 
         // Save the generated star data to a file
         String fileName = "Dataset2.txt";
