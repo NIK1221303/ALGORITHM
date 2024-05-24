@@ -65,7 +65,7 @@ public class DataTwo {
     public List<Integer> getAllZ(ArrayList<HashMap<String, Object>> starList) {
         List<Integer> allZ = new ArrayList<>();
         for (HashMap<String, Object> star : starList) {
-            allZ.add((Integer) star.get("y"));
+            allZ.add((Integer) star.get("z"));
         }
         return allZ;
     }
@@ -92,9 +92,9 @@ public class DataTwo {
         // get Distance 
         for (int i = 1; i < getAllX(starList).size(); i++) {
             double distance = Math.sqrt(
-            (Math.pow(2,(getAllX(starList).get(i) - getAllX(starList).get(i-1)))) + 
-            (Math.pow(2,(getAllY(starList).get(i) - getAllY(starList).get(i-1)))) + 
-            (Math.pow(2,(getAllZ(starList).get(i) - getAllZ(starList).get(i-1)))));
+            (Math.pow((getAllX(starList).get(i) - getAllX(starList).get(i-1)), 2)) + 
+            (Math.pow((getAllY(starList).get(i) - getAllY(starList).get(i-1)), 2)) + 
+            (Math.pow((getAllZ(starList).get(i) - getAllZ(starList).get(i-1)), 2)));
         
             // cast to Integer
             starDistance.add((int)distance);
