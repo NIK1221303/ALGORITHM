@@ -19,8 +19,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        Main main = new Main(); // Create an instance of Main
+        
+        // Create an instance of Main
+        new Main(); 
 
         Scanner input = new Scanner(System.in);
 
