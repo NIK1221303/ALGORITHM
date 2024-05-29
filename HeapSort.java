@@ -53,7 +53,7 @@ public class HeapSort implements Sort {
                 System.out.println(e);
             }
 
-            // System.out.println("HEAP SORT: " + data.getSet(2).getData()); // finish sort
+           
 
         }
 
@@ -72,8 +72,9 @@ public class HeapSort implements Sort {
                      // child have change to right child
         }
 
+        //swap child and parent if greater
         if (data.get(child) > data.get(parent)) {
-            int temp; // swap child and parent if above if statement is not execute
+            int temp; 
         temp = data.get(child);
         data.set(child, data.get(parent));
         data.set(parent, temp);
