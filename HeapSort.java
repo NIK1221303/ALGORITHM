@@ -28,7 +28,7 @@ public class HeapSort implements Sort {
 
             long startTime = System.nanoTime();
 
-            for (int i = n / 2 - 1; i >= 0; i--) {
+            for (int i = n / 2 - 1; i >= 0; i--) { // i = parent index
                 heapify(data.getSet(setIndex).getData(), i, n);// make initial heap
             }
 
@@ -72,16 +72,17 @@ public class HeapSort implements Sort {
                      // child have change to right child
         }
 
-        if (data.get(child) <= data.get(parent)) {
-            return; // if the child is no greater than parent, return
-        }
-
-        int temp; // swap child and parent if above if statement is not execute
+        if (data.get(child) > data.get(parent)) {
+            int temp; // swap child and parent if above if statement is not execute
         temp = data.get(child);
         data.set(child, data.get(parent));
         data.set(parent, temp);
 
         heapify(data, child, heapsize);
+        }
+
+        
+        return;
 
     }
 
