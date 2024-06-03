@@ -13,6 +13,8 @@ public class Main {
     public static StarRoutes starRoutes;
     public static PathFinder pathFinder;
     public static Knapsack knapsack;
+    public static Kruskal kruskal;
+
 
     public Main() {
         new GenDataOne();
@@ -25,7 +27,7 @@ public class Main {
         starRoutes = new StarRoutes(dataTwo);
         pathFinder = new PathFinder(starRoutes);
         knapsack = new Knapsack(dataTwo, 800);
-
+        kruskal = new Kruskal(starRoutes);
     }
 
     public static void main(String[] args) throws IOException {
@@ -64,6 +66,8 @@ public class Main {
             for (String star : path) {
                 System.out.println(star);
             }
+        } else if (choice == 7) {
+            kruskal.findMST();
         }
 
         input.close();
