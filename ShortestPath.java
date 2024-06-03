@@ -3,11 +3,11 @@
 
 import java.util.*;
 
-public class PathFinder {
+public class ShortestPath {
 
     private final StarRoutes starRoutes;
 
-    public PathFinder(StarRoutes starRoutes) {
+    public ShortestPath(StarRoutes starRoutes) {
         this.starRoutes = starRoutes;
     }
 
