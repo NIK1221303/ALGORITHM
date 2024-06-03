@@ -143,9 +143,13 @@ public class StarRoutes {
     private void addConnection(String star1, String star2) {
         int distance = dataTwo.getStarDistance(star1, star2);
 
-        // 
+        //
         starRoutes.computeIfAbsent(star1, k -> new HashMap<>()).put(star2, distance);
         starRoutes.computeIfAbsent(star2, k -> new HashMap<>()).put(star1, distance);
+    }
+
+    public Map<String, Map<String, Integer>> getStarRoutes() {
+        return starRoutes;
     }
 
     public Map<String, Integer> getConnectedStars(String starName) {
@@ -154,21 +158,5 @@ public class StarRoutes {
 
     public Integer getDistanceBetween(String star1, String star2) {
         return starRoutes.getOrDefault(star1, Collections.emptyMap()).get(star2);
-    }
-
-    public static void main(String[] args) {
-        DataTwo dataTwo = new DataTwo();
-        StarRoutes starRoutes = new StarRoutes(dataTwo);
-
-        // list out all connection between a star
-        System.out.println("Distances from Star A:");
-        Map<String, Integer> connections = starRoutes.getConnectedStars("Star A");
-        for (Map.Entry<String, Integer> entry : connections.entrySet()) {
-            System.out.println("To " + entry.getKey() + ": " + entry.getValue() + " units");
-        }
-
-
-        // sample distance between stars
-        System.out.println(starRoutes.getDistanceBetween("Star A", "Star B"));
     }
 }

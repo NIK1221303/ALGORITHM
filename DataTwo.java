@@ -47,6 +47,10 @@ public class DataTwo {
         return null;
     }
 
+    public List<Star> getStars() {
+        return starList;
+    }
+
     public Integer getStarDistance(String oriStar, String destStar) {
 
         // Distance Formula

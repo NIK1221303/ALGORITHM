@@ -34,8 +34,8 @@ public class GenDataTwo {
             starData.put("x", generateRandomValue(3, Character.toString(starName), 1402323)); // 0 to 999
             starData.put("y", generateRandomValue(3, Character.toString(starName), 975345348)); // 0 to 999
             starData.put("z", generateRandomValue(3, Character.toString(starName), 196798768)); // 0 to 999
-            starData.put("weight", generateRandomValue(3, Character.toString(starName), 19731314)); // 0 to 99
-            starData.put("profit", generateRandomValue(3, Character.toString(starName), 65304096)); // 0 to 99
+            starData.put("weight", generateRandomValue(2, Character.toString(starName), 19731314)); // 0 to 99
+            starData.put("profit", generateRandomValue(2, Character.toString(starName), 65304096)); // 0 to 99
 
             // Add the HashMap to the ArrayList
             starList.add(starData);

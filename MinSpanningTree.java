@@ -37,10 +37,5 @@ public class MinSpanningTree implements Sort{
         }
 
         return null; // No connected stars or invalid starName
-    }
-
-
-
-    
-    
+    } 
 }
