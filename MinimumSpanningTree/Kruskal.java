@@ -1,3 +1,5 @@
+package MinimumSpanningTree;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -5,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import DatasetTwo.StarRoutes;
 
 public class Kruskal {
 
@@ -41,8 +45,7 @@ public class Kruskal {
             }
         }
 
-        printResult("mst.txt");
-
+        printResult("MinimumSpanningTree/mst.txt");
     }
 
     public void printResult(String filename) throws IOException {

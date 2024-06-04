@@ -1,3 +1,4 @@
+package DatasetTwo;
 import java.util.*;
 
 
@@ -19,7 +20,7 @@ public class GenDataTwo {
         // }
 
         // Save the generated star data to a file
-        String fileName = "Dataset2.txt";
+        String fileName = "DatasetTwo/Dataset2.txt";
         saveStarsToFile(starList, fileName);
 
     }

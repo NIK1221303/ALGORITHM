@@ -1,3 +1,4 @@
+package DatasetOne;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Random;
@@ -66,7 +67,7 @@ public class GenDataOne {
         }
 
         try {
-            File file = new File("Dataset1.txt");
+            File file = new File("DatasetOne/Dataset1.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }

@@ -1,3 +1,4 @@
+package DatasetTwo;
 import java.io.*;
 import java.util.*;
 import java.lang.Math;
@@ -13,7 +14,7 @@ public class DataTwo {
 
     private void loadData() {
         // Read data from the text file
-        String fileName = "Dataset2.txt"; // Change this to your actual file path
+        String fileName = "DatasetTwo/Dataset2.txt"; // Change this to your actual file path
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = br.readLine()) != null) {

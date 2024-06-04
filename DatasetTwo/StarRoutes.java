@@ -1,3 +1,5 @@
+package DatasetTwo;
+
 import java.util.*;
 
 public class StarRoutes {
@@ -158,5 +160,24 @@ public class StarRoutes {
 
     public Integer getDistanceBetween(String star1, String star2) {
         return starRoutes.getOrDefault(star1, Collections.emptyMap()).get(star2);
+    }
+
+    public Star getClosestStar(String starName) {
+        Map<String, Integer> connections = getConnectedStars(starName);
+        String closestStarName = null;
+        int shortestDistance = Integer.MAX_VALUE;
+
+        for (Map.Entry<String, Integer> entry : connections.entrySet()) {
+            if (entry.getValue() < shortestDistance) {
+                shortestDistance = entry.getValue();
+                closestStarName = entry.getKey();
+            }
+        }
+
+        if (closestStarName != null) {
+            return dataTwo.getStar(closestStarName);
+        }
+
+        return null; // No connected stars or invalid starName
     }
 }

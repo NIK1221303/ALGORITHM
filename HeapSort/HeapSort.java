@@ -1,8 +1,11 @@
+package HeapSort;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class HeapSort implements Sort {
+import DatasetOne.DataOnes;
+
+public class HeapSort {
     public DataOnes data;
 
     public HeapSort(DataOnes data) {
@@ -11,10 +14,10 @@ public class HeapSort implements Sort {
 
     public void sort() {
 
-        data.retrieveData("Dataset1.txt");
+        data.retrieveData("DatasetOne/Dataset1.txt");
 
         // Reset the file at the beginning of the sort method
-        try (FileWriter fileWriter = new FileWriter("HeapAlgo.txt")) {
+        try (FileWriter fileWriter = new FileWriter("HeapSort/HeapAlgo.txt")) {
             fileWriter.write("");
         } catch (IOException e) {
             System.out.println(e);
@@ -40,7 +43,7 @@ public class HeapSort implements Sort {
             System.out.println("Execution time in nanoseconds: " + (duration) + "ns\n");
 
             // Append sorted set to text file
-            try (FileWriter fileWriter = new FileWriter("HeapAlgo.txt", true)) { // true for append mode
+            try (FileWriter fileWriter = new FileWriter("HeapSort/HeapAlgo.txt", true)) { // true for append mode
                 fileWriter.write("## SET " + (setIndex + 1) + " ##\n");
                 StringBuilder line = new StringBuilder("[");
                 for (Integer value : data.getSet(setIndex).getData()) {

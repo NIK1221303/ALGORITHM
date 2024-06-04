@@ -1,7 +1,10 @@
+package ShortestPaths;
 
 // this gpt generated code, works to calculate distance between separated nodes.
 
 import java.util.*;
+
+import DatasetTwo.StarRoutes;
 
 public class ShortestPath {
 
@@ -9,6 +12,16 @@ public class ShortestPath {
 
     public ShortestPath(StarRoutes starRoutes) {
         this.starRoutes = starRoutes;
+    }
+
+    private static class Node {
+        String star;
+        int cost;
+
+        Node(String star, int cost) {
+            this.star = star;
+            this.cost = cost;
+        }
     }
 
     public List<String> findShortestPath(String start, String end) {
@@ -33,7 +46,8 @@ public class ShortestPath {
                 break;
             }
 
-            // iterate through every current connected star, and pick the star with smallest distance
+            // iterate through every current connected star, and pick the star with smallest
+            // distance
             for (Map.Entry<String, Integer> neighbor : starRoutes.getConnectedStars(current.star).entrySet()) {
                 int newDist = distances.get(current.star) + neighbor.getValue();
                 if (newDist < distances.get(neighbor.getKey())) {
@@ -50,15 +64,5 @@ public class ShortestPath {
         }
         Collections.reverse(path);
         return path;
-    }
-
-    private static class Node {
-        String star;
-        int cost;
-
-        Node(String star, int cost) {
-            this.star = star;
-            this.cost = cost;
-        }
     }
 }

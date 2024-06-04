@@ -3,13 +3,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import DatasetOne.DataOnes;
+import DatasetOne.GenDataOne;
+import MinimumSpanningTree.Kruskal;
+import DatasetTwo.DataTwo;
+import DatasetTwo.GenDataTwo;
+import DatasetTwo.StarRoutes;
+import DynamicProgramming.Knapsack;
+import HeapSort.HeapSort;
+import SelectionSort.SelectionSort;
+import ShortestPaths.ShortestPath;
+
 public class Main {
 
-    public static SelectionSort sel;
-    public static HeapSort heap;
-    public static MinSpanningTree minSTree;
     public static DataOnes dataOne;
     public static DataTwo dataTwo;
+    public static SelectionSort sel;
+    public static HeapSort heap;
     public static StarRoutes starRoutes;
     public static ShortestPath shortestPath;
     public static Knapsack knapsack;
@@ -20,13 +30,12 @@ public class Main {
         new GenDataTwo();
         dataOne = new DataOnes();
         dataTwo = new DataTwo();
-        sel = new SelectionSort(dataOne);
         heap = new HeapSort(dataOne);
-        minSTree = new MinSpanningTree(dataTwo);
+        sel = new SelectionSort(dataOne);
         starRoutes = new StarRoutes(dataTwo);
+        kruskal = new Kruskal(starRoutes);
         shortestPath = new ShortestPath(starRoutes);
         knapsack = new Knapsack(dataTwo, 800);
-        kruskal = new Kruskal(starRoutes);
     }
 
     public static void main(String[] args) throws IOException {

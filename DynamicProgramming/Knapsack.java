@@ -1,4 +1,9 @@
+package DynamicProgramming;
 import java.util.*;
+
+import DatasetTwo.DataTwo;
+import DatasetTwo.Star;
+
 import java.io.*;
 
 public class Knapsack {
@@ -36,8 +41,8 @@ public class Knapsack {
             }
         }
 
-        printResult("result.txt");
-        printMatrix("matrix.txt");
+        printResult("DynamicProgramming/result.txt");
+        printMatrix("DynamicProgramming/matrix.txt");
     }
 
     private void printResult(String filename) throws IOException {

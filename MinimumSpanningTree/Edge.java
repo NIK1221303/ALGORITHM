@@ -1,3 +1,5 @@
+package MinimumSpanningTree;
+
 // This class will represent the edges between stars.
 
 public class Edge implements Comparable<Edge> {
