@@ -32,11 +32,11 @@ public class GenDataTwo {
         for (char starName = 'A'; starName <= 'T'; starName++) {
             HashMap<String, Object> starData = new HashMap<>();
             starData.put("name", "Star " + starName);
-            starData.put("x", generateRandomValue(3, Character.toString(starName), 1402323)); // 0 to 999
-            starData.put("y", generateRandomValue(3, Character.toString(starName), 975345348)); // 0 to 999
-            starData.put("z", generateRandomValue(3, Character.toString(starName), 196798768)); // 0 to 999
-            starData.put("weight", generateRandomValue(2, Character.toString(starName), 19731314)); // 0 to 99
-            starData.put("profit", generateRandomValue(2, Character.toString(starName), 65304096)); // 0 to 99
+            starData.put("x", generateRandomValue(2, 3, Character.toString(starName), 1023)); // 0 to 999
+            starData.put("y", generateRandomValue(2, 3, Character.toString(starName), 97538)); // 0 to 999
+            starData.put("z", generateRandomValue(2, 3, Character.toString(starName), 19678)); // 0 to 999
+            starData.put("weight", generateRandomValue(2, 2, Character.toString(starName), 1314)); // 0 to 99
+            starData.put("profit", generateRandomValue(2, 2, Character.toString(starName), 65306)); // 0 to 99
 
             // Add the HashMap to the ArrayList
             starList.add(starData);
@@ -63,13 +63,13 @@ public class GenDataTwo {
     }
 
     //
-    private static int generateRandomValue(int numDigits, String starName, int randomValue) {
-        // insert seed (1211103426 + 1211100965 + 1221303804 = 3643508195)
-        // long seed = 3643508195L;
-
+    private static int generateRandomValue(int minDigits, int maxDigits, String starName, int randomValue) {
         // allows different randomizer data
         Random rand = new Random(starName.hashCode() + randomValue);
         Integer[] allowedDigits = { 3, 6, 4, 5, 8, 1, 9, 0 };
+
+        // determine the number of digits randomly within the specified range
+        int numDigits = rand.nextInt((maxDigits - minDigits) + 1) + minDigits;
 
         StringBuilder value = new StringBuilder();
         for (int i = 0; i < numDigits; i++) {
@@ -83,6 +83,7 @@ public class GenDataTwo {
             int randomIndex = rand.nextInt(allowedDigits.length);
             value.append(allowedDigitsList.get(randomIndex));
         }
+
         return Integer.parseInt(value.toString());
     }
 }

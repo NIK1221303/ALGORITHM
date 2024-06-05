@@ -1,20 +1,19 @@
 Selected stars:
-Name: Star T, Weight: 41, Profit: 31
-Name: Star S, Weight: 44, Profit: 36
-Name: Star R, Weight: 43, Profit: 34
-Name: Star Q, Weight: 49, Profit: 38
-Name: Star P, Weight: 46, Profit: 35
-Name: Star O, Weight: 44, Profit: 38
-Name: Star N, Weight: 45, Profit: 35
-Name: Star M, Weight: 43, Profit: 39
-Name: Star L, Weight: 40, Profit: 33
-Name: Star K, Weight: 41, Profit: 38
-Name: Star J, Weight: 44, Profit: 35
-Name: Star I, Weight: 45, Profit: 36
-Name: Star H, Weight: 49, Profit: 34
-Name: Star F, Weight: 48, Profit: 39
-Name: Star E, Weight: 45, Profit: 33
-Name: Star D, Weight: 41, Profit: 30
-Name: Star B, Weight: 48, Profit: 36
-Name: Star A, Weight: 40, Profit: 33
-Total profit: 633
+Name: Star T, Weight: 94, Profit: 69
+Name: Star S, Weight: 59, Profit: 30
+Name: Star R, Weight: 0, Profit: 6
+Name: Star Q, Weight: 39, Profit: 50
+Name: Star P, Weight: 40, Profit: 96
+Name: Star O, Weight: 66, Profit: 33
+Name: Star N, Weight: 11, Profit: 45
+Name: Star M, Weight: 68, Profit: 53
+Name: Star L, Weight: 15, Profit: 95
+Name: Star K, Weight: 83, Profit: 88
+Name: Star I, Weight: 63, Profit: 68
+Name: Star H, Weight: 10, Profit: 34
+Name: Star E, Weight: 6, Profit: 49
+Name: Star D, Weight: 81, Profit: 64
+Name: Star C, Weight: 98, Profit: 91
+Name: Star B, Weight: 55, Profit: 88
+Name: Star A, Weight: 8, Profit: 11
+Total profit: 970
