@@ -44,4 +44,3 @@ public class UnionFind {
         return true;
     }
 }
-

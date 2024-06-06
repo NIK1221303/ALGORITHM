@@ -52,7 +52,7 @@ public class Kruskal {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("Minimum Spanning Tree:\n");
             for (Edge edge : mst) {
-                writer.write(String.format("%s - %s: %d\n", edge.star1, edge.star2, edge.weight));
+                writer.write(String.format("%s - %s: %d\n", edge.star1, edge.star2, edge.distance));
             }
         }
     }
