@@ -35,7 +35,7 @@ public class Kruskal {
         }
     }
 
-    public void findMST() throws IOException {
+    public void findMinimumSpanningTree() throws IOException {
         Collections.sort(edges);
         UnionFind uf = new UnionFind(stars);
 
@@ -48,7 +48,7 @@ public class Kruskal {
         printResult("MinimumSpanningTree/mst.txt");
     }
 
-    public void printResult(String filename) throws IOException {
+    private void printResult(String filename) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("Minimum Spanning Tree:\n");
             for (Edge edge : mst) {

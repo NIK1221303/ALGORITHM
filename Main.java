@@ -18,7 +18,7 @@ public class Main {
 
     public static DataOnes dataOne;
     public static DataTwo dataTwo;
-    public static SelectionSort sel;
+    public static SelectionSort selection;
     public static HeapSort heap;
     public static StarRoutes starRoutes;
     public static ShortestPath shortestPath;
@@ -31,7 +31,7 @@ public class Main {
         dataOne = new DataOnes();
         dataTwo = new DataTwo();
         heap = new HeapSort(dataOne);
-        sel = new SelectionSort(dataOne);
+        selection = new SelectionSort(dataOne);
         starRoutes = new StarRoutes(dataTwo);
         kruskal = new Kruskal(starRoutes);
         shortestPath = new ShortestPath(starRoutes);
@@ -51,7 +51,7 @@ public class Main {
         int choice = input.nextInt();
 
         if (choice == 1)
-            sel.sort();
+            selection.sort();
         else if (choice == 2)
             heap.sort();
         else if (choice == 3) {
@@ -62,7 +62,7 @@ public class Main {
                 System.out.println(star);
             }
         } else if (choice == 4) {
-            kruskal.findMST();
+            kruskal.findMinimumSpanningTree();
         } else if (choice == 5)
             knapsack.solve();
         else if (choice == 6) {
