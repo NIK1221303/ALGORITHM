@@ -12,6 +12,7 @@ import DatasetTwo.StarRoutes;
 import DynamicProgramming.Knapsack;
 import HeapSort.HeapSort;
 import SelectionSort.SelectionSort;
+import ShortestPaths.Dijkstra;
 import ShortestPaths.ShortestPath;
 
 public class Main {
@@ -24,6 +25,7 @@ public class Main {
     public static ShortestPath shortestPath;
     public static Knapsack knapsack;
     public static Kruskal kruskal;
+    public static Dijkstra dijkstra;
 
     public Main() {
         new GenDataOne();
@@ -35,6 +37,8 @@ public class Main {
         starRoutes = new StarRoutes(dataTwo);
         kruskal = new Kruskal(starRoutes);
         shortestPath = new ShortestPath(starRoutes);
+        dijkstra = new Dijkstra(starRoutes);
+
         knapsack = new Knapsack(dataTwo, 800);
     }
 
@@ -55,12 +59,13 @@ public class Main {
         else if (choice == 2)
             heap.sort();
         else if (choice == 3) {
+            dijkstra.shortestPath("Star A");
             // Test the shortest path
-            List<String> path = shortestPath.findShortestPath("Star A", "Star O");
-            System.out.println("Shortest path from Star A to Star O:");
-            for (String star : path) {
-                System.out.println(star);
-            }
+            // List<String> path = shortestPath.findShortestPath("Star A", "Star O");
+            // System.out.println("Shortest path from Star A to Star O:");
+            // for (String star : path) {
+            //     System.out.println(star);
+            // }
         } else if (choice == 4) {
             kruskal.findMinimumSpanningTree();
         } else if (choice == 5)
