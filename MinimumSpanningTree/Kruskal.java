@@ -15,13 +15,13 @@ public class Kruskal {
     private StarRoutes starRoutes;
     private List<Edge> edges;
     private List<String> stars;
-    private List<Edge> mst;
+    private List<Edge> minSpanTree;
 
     public Kruskal(StarRoutes starRoutes) {
         this.starRoutes = starRoutes;
         this.stars = new ArrayList<>(starRoutes.getStarRoutes().keySet());
         this.edges = new ArrayList<>();
-        this.mst = new ArrayList<>();
+        this.minSpanTree = new ArrayList<>();
         initializeEdges();
     }
 
@@ -41,17 +41,16 @@ public class Kruskal {
 
         for (Edge edge : edges) {
             if (uf.union(edge.star1, edge.star2)) {
-                mst.add(edge);
+                minSpanTree.add(edge);
             }
         }
-
         printResult("MinimumSpanningTree/mst.txt");
     }
 
     private void printResult(String filename) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("Minimum Spanning Tree:\n");
-            for (Edge edge : mst) {
+            for (Edge edge : minSpanTree) {
                 writer.write(String.format("%s - %s: %d\n", edge.star1, edge.star2, edge.distance));
             }
         }

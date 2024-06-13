@@ -8,6 +8,7 @@ import java.util.List;
 public class DataOnes {
     private static List<DataOne> sets;
 
+    // Constructor : Create 6 sets of different sizes
     public DataOnes() {
         sets = new ArrayList<>();
         sets.add(new DataOne(100));
@@ -18,6 +19,7 @@ public class DataOnes {
         sets.add(new DataOne(1000000));
     }
 
+    // Retrieve all sets from the text file
     public void retrieveData(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -30,7 +32,6 @@ public class DataOnes {
                     throw new IOException("Unexpected line in file: " + lineIndex);
                 }
                 lineIndex++;
-            
             }
         
         } catch (IOException e) {
@@ -38,11 +39,12 @@ public class DataOnes {
         }
     }
 
-
+    // Get whole sets
     public List<DataOne> getSets() {
         return sets;
     }
 
+    // Get a set
     public DataOne getSet(int index) {
         List<DataOne> setList = getSets();
         if (index >= 0 && index < setList.size()) {

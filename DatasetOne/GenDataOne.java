@@ -11,7 +11,7 @@ public class GenDataOne {
         generateData();
     }
 
-    public void generateData() {
+    private void generateData() {
         boolean flag = false;
         Random rand = new Random(1211103426);
 
@@ -89,7 +89,8 @@ public class GenDataOne {
         }
     }
 
-    public static boolean check(int number) {
+    // 
+    private static boolean check(int number) {
 
         String result = String.valueOf(number);
         char[] split = result.toCharArray();

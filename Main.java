@@ -1,19 +1,14 @@
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import DatasetOne.DataOnes;
-import DatasetOne.GenDataOne;
-import MinimumSpanningTree.Kruskal;
-import DatasetTwo.DataTwo;
-import DatasetTwo.GenDataTwo;
-import DatasetTwo.StarRoutes;
-import DynamicProgramming.Knapsack;
+import DatasetOne.*;
+import DatasetTwo.*;
 import HeapSort.HeapSort;
 import SelectionSort.SelectionSort;
 import ShortestPaths.Dijkstra;
-import ShortestPaths.ShortestPath;
+import MinimumSpanningTree.Kruskal;
+import DynamicProgramming.Knapsack;
 
 public class Main {
 
@@ -21,25 +16,23 @@ public class Main {
     public static DataTwo dataTwo;
     public static SelectionSort selection;
     public static HeapSort heap;
-    public static StarRoutes starRoutes;
-    public static ShortestPath shortestPath;
+    //public static StarRoutes starRoutes;
     public static Knapsack knapsack;
     public static Kruskal kruskal;
     public static Dijkstra dijkstra;
 
     public Main() {
         new GenDataOne();
-        new GenDataTwo();
+        //new GenDataTwo();
         dataOne = new DataOnes();
         dataTwo = new DataTwo();
         heap = new HeapSort(dataOne);
         selection = new SelectionSort(dataOne);
-        starRoutes = new StarRoutes(dataTwo);
-        kruskal = new Kruskal(starRoutes);
-        shortestPath = new ShortestPath(starRoutes);
-        dijkstra = new Dijkstra(starRoutes);
+        //starRoutes = new StarRoutes(dataTwo);
+        //kruskal = new Kruskal(starRoutes);
+        //dijkstra = new Dijkstra(starRoutes);
 
-        knapsack = new Knapsack(dataTwo, 800);
+        knapsack = new Knapsack(dataTwo, 12);
     }
 
     public static void main(String[] args) throws IOException {
@@ -60,30 +53,24 @@ public class Main {
             heap.sort();
         else if (choice == 3) {
             dijkstra.shortestPath("Star A");
-            // Test the shortest path
-            // List<String> path = shortestPath.findShortestPath("Star A", "Star O");
-            // System.out.println("Shortest path from Star A to Star O:");
-            // for (String star : path) {
-            //     System.out.println(star);
-            // }
         } else if (choice == 4) {
             kruskal.findMinimumSpanningTree();
         } else if (choice == 5)
             knapsack.solve();
-        else if (choice == 6) {
+        //     else if (choice == 6) {
 
-            // EXTRA CODES // DONT DELETE //
+        //     // EXTRA CODES // DONT DELETE //
 
-            // list out all connection between a star
-            System.out.println("Distances from Star A:");
-            Map<String, Integer> connections = starRoutes.getConnectedStars("Star A");
-            for (Map.Entry<String, Integer> entry : connections.entrySet()) {
-                System.out.println("To " + entry.getKey() + ": " + entry.getValue() + " units");
-            }
+        //     // list out all connection between a star
+        //     System.out.println("Distances from Star A:");
+        //     Map<String, Integer> connections = starRoutes.getConnectedStars("Star A");
+        //     for (Map.Entry<String, Integer> entry : connections.entrySet()) {
+        //         System.out.println("To " + entry.getKey() + ": " + entry.getValue() + " units");
+        //     }
 
-            // sample distance between stars
-            System.out.println(starRoutes.getDistanceBetween("Star A", "Star B"));
-        }
+        //     // sample distance between stars
+        //     System.out.println(starRoutes.getDistanceBetween("Star A", "Star B"));
+        // }
         input.close();
     }
 }

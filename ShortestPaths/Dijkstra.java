@@ -7,15 +7,12 @@ import DatasetTwo.StarRoutes;
 
 public class Dijkstra {
 
-    private final StarRoutes starRoutes;
-    private static final int INFINITE = Integer.MAX_VALUE;
-
-    int nodes;
-
+    private int minDistance;
     private Set<String> visited; // all visited node put here
     private Map<String, Integer> shortestDist; // Star A , 0
     private Map<String, List<Edge>> graph;
-    int minDistance;
+    private final StarRoutes starRoutes;
+    private static final int INFINITE = Integer.MAX_VALUE;
 
     public Dijkstra(StarRoutes starRoutes) {
         this.starRoutes = starRoutes;

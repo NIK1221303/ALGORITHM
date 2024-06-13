@@ -5,10 +5,12 @@ import java.util.Arrays;
 public class DataOne {
     private ArrayList<Integer> data;
 
+    // Constructor : Allow sets to be made in different sizes
     public DataOne(int size) {
         data = new ArrayList<>();
     }
 
+    // Load a set from text file into arraylist
     public void loadData(String line) {
         data = new ArrayList<>();
         Arrays.stream(line.replaceAll("[\\[\\]]", "").split(", "))
@@ -16,6 +18,7 @@ public class DataOne {
               .forEach(data::add);
     }
 
+    // Get a set
     public ArrayList<Integer> getData() {
         return data;
     }

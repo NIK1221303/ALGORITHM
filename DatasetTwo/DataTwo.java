@@ -1,4 +1,5 @@
 package DatasetTwo;
+
 import java.io.*;
 import java.util.*;
 import java.lang.Math;
@@ -12,6 +13,7 @@ public class DataTwo {
     // Initialize the ArrayList to store HashMaps
     static List<Star> starList = new ArrayList<>();
 
+    
     private void loadData() {
         // Read data from the text file
         String fileName = "DatasetTwo/Dataset2.txt"; // Change this to your actual file path
@@ -39,6 +41,7 @@ public class DataTwo {
         }
     }
 
+    // Get Star
     public Star getStar(String starName) {
         for (Star star : starList) {
             if (starName.equals(star.getName())) {
@@ -48,76 +51,20 @@ public class DataTwo {
         return null;
     }
 
+    // Get all Stars
     public List<Star> getStars() {
         return starList;
     }
 
+    // Calculate distance between two Stars  
     public Integer getStarDistance(String oriStar, String destStar) {
 
         // Distance Formula
         double distance = Math.sqrt(
-                        (Math.pow((getStar(destStar).getX() - getStar(oriStar).getX()), 2)) +
-                        (Math.pow((getStar(destStar).getY() - getStar(oriStar).getY()), 2)) +
-                        (Math.pow((getStar(destStar).getZ() - getStar(oriStar).getZ()), 2)));
+                (Math.pow((getStar(destStar).getX() - getStar(oriStar).getX()), 2)) +
+                (Math.pow((getStar(destStar).getY() - getStar(oriStar).getY()), 2)) +
+                (Math.pow((getStar(destStar).getZ() - getStar(oriStar).getZ()), 2)));
 
         return (int) distance;
     }
-
-    // public List<Integer> getAllX(ArrayList<HashMap<String, Object>> starList) {
-    // List<Integer> allX = new ArrayList<>();
-    // for (HashMap<String, Object> star : starList) {
-    // allX.add((Integer) star.get("x"));
-    // }
-    // return allX;
-    // }
-
-    // public List<Integer> getAllY(ArrayList<HashMap<String, Object>> starList) {
-    // List<Integer> allY = new ArrayList<>();
-    // for (HashMap<String, Object> star : starList) {
-    // allY.add((Integer) star.get("y"));
-    // }
-    // return allY;
-    // }
-
-    // public List<Integer> getAllZ(ArrayList<HashMap<String, Object>> starList) {
-    // List<Integer> allZ = new ArrayList<>();
-    // for (HashMap<String, Object> star : starList) {
-    // allZ.add((Integer) star.get("z"));
-    // }
-    // return allZ;
-    // }
-
-    // public List<Integer> getAllProfit(ArrayList<HashMap<String, Object>>
-    // starList) {
-    // List<Integer> allProfit = new ArrayList<>();
-    // for (HashMap<String, Object> star : starList) {
-    // allProfit.add((Integer) star.get("profit"));
-    // }
-    // return allProfit;
-    // }
-
-    // public List<Integer> getAllWeight(ArrayList<HashMap<String, Object>>
-    // starList) {
-    // List<Integer> allWeight = new ArrayList<>();
-    // for (HashMap<String, Object> star : starList) {
-    // allWeight.add((Integer) star.get("weight"));
-    // }
-    // return allWeight;
-    // }
-
-    // public List<Integer> getStarDistance() {
-    // List<Integer> starDistance = new ArrayList<>();
-
-    // // get Distance
-    // for (int i = 1; i < getAllX(starList).size(); i++) {
-    // double distance = Math.sqrt(
-    // (Math.pow((getAllX(starList).get(i) - getAllX(starList).get(i-1)), 2)) +
-    // (Math.pow((getAllY(starList).get(i) - getAllY(starList).get(i-1)), 2)) +
-    // (Math.pow((getAllZ(starList).get(i) - getAllZ(starList).get(i-1)), 2)));
-
-    // // cast to Integer
-    // starDistance.add((int)distance);
-    // }
-    // return starDistance;
-    // }
 }

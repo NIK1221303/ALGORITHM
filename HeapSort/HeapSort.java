@@ -55,11 +55,7 @@ public class HeapSort {
             } catch (IOException e) {
                 System.out.println(e);
             }
-
-           
-
         }
-
     }
 
     public void heapify(ArrayList<Integer> data, int parent, int heapsize) {
