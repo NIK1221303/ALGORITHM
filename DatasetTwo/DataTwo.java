@@ -13,7 +13,6 @@ public class DataTwo {
     // Initialize the ArrayList to store HashMaps
     static List<Star> starList = new ArrayList<>();
 
-    
     private void loadData() {
         // Read data from the text file
         String fileName = "DatasetTwo/Dataset2.txt"; // Change this to your actual file path
