@@ -56,7 +56,6 @@ public class Dijkstra {
                 }
             }
         }
-
     }
 
     public void calcShortestDistance(String currentNode, int currentDist) {

@@ -23,7 +23,7 @@ public class Main {
 
     public Main() {
         new GenDataOne();
-        //new GenDataTwo();
+        new GenDataTwo();
         dataOne = new DataOnes();
         dataTwo = new DataTwo();
         heap = new HeapSort(dataOne);
@@ -31,7 +31,6 @@ public class Main {
         starRoutes = new StarRoutes(dataTwo);
         kruskal = new Kruskal(starRoutes);
         dijkstra = new Dijkstra(starRoutes);
-
         knapsack = new Knapsack(dataTwo, 800);
     }
 
@@ -43,7 +42,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         System.out.println(
-                "Choose Algorithm:\n1. Selection Sort\n2. Heap Sort\n3. Shortest Path (IN PROGRESS)\n4. Minimum Spanning Tree (IN PROGRESS)\n5. Dynamic Programming (IN PROGRESS)");
+                "Choose Algorithm:\n1. Selection Sort\n2. Heap Sort\n3. Shortest Path\n4. Minimum Spanning Tree\n5. Dynamic Programming");
 
         int choice = input.nextInt();
 
@@ -57,20 +56,6 @@ public class Main {
             kruskal.findMinimumSpanningTree();
         } else if (choice == 5)
             knapsack.solve();
-        //     else if (choice == 6) {
-
-        //     // EXTRA CODES // DONT DELETE //
-
-        //     // list out all connection between a star
-        //     System.out.println("Distances from Star A:");
-        //     Map<String, Integer> connections = starRoutes.getConnectedStars("Star A");
-        //     for (Map.Entry<String, Integer> entry : connections.entrySet()) {
-        //         System.out.println("To " + entry.getKey() + ": " + entry.getValue() + " units");
-        //     }
-
-        //     // sample distance between stars
-        //     System.out.println(starRoutes.getDistanceBetween("Star A", "Star B"));
-        // }
         input.close();
     }
 }

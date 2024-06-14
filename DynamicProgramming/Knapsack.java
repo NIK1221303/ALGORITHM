@@ -42,17 +42,19 @@ public class Knapsack {
                     int profitIfCurrentStarExcluded = tabulationTable[star][capacity];
 
                     if (profitIfCurrentStarIncluded > profitIfCurrentStarExcluded) {
-                        // Update value in one star future
+                        // Update value in one Star future
                         tabulationTable[star + 1][capacity] = profitIfCurrentStarIncluded;
                         chosenStars[star + 1][capacity].addAll(chosenStars[star][capacity - stars.get(star).getWeight()]);
+                        // Update list of Stars in one Star future
                         chosenStars[star + 1][capacity].add(stars.get(star));
                     } else {
-                        // Update value in one star future
+                        // Update value in one Star future
                         tabulationTable[star + 1][capacity] = profitIfCurrentStarExcluded;
+                        // Update list of Stars in one Star future
                         chosenStars[star + 1][capacity].addAll(chosenStars[star][capacity]);
                     }
                 // If Star weight is bigger than current capacity
-                // Copy previous data to current index
+                // Copy value into one Star future
                 } else {
                     tabulationTable[star + 1][capacity] = tabulationTable[star][capacity];
                     chosenStars[star + 1][capacity].addAll(chosenStars[star][capacity]);
@@ -61,7 +63,7 @@ public class Knapsack {
         }
 
         long endTime = System.nanoTime();
-        long duration = (endTime - startTime); // in nanoseconds
+        long duration = (endTime - startTime); 
         System.out.println("Execution time in nanoseconds: " + (duration) + "ns\n");
 
         // Get combination of Star resulting in highest profit at highest capacity

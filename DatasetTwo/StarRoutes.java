@@ -144,7 +144,13 @@ public class StarRoutes {
 
     // Connect two Stars with distance between them
     private void addConnection(String star1, String star2) {
+        // Calculate distance between star1 and star2
         int distance = dataTwo.getStarDistance(star1, star2);
+
+        // Insert Source Star as a key in a HashMap
+        // Add Destination Star in a new HashMap with distance between them at the
+        // Source Star HashMaps' value
+        // Bidirectional connection
         starRoutes.computeIfAbsent(star1, k -> new HashMap<>()).put(star2, distance);
         starRoutes.computeIfAbsent(star2, k -> new HashMap<>()).put(star1, distance);
     }
@@ -160,8 +166,4 @@ public class StarRoutes {
     public Integer getDistanceBetween(String star1, String star2) {
         return starRoutes.getOrDefault(star1, Collections.emptyMap()).get(star2);
     }
-
-    // Insert Source Star as a key in a HashMap
-        // Add Destination Star in a new HashMap with distance between them at the Source Star HashMaps' value
-        // Bidirectional connection
 }
