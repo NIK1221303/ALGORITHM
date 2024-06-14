@@ -1,18 +1,16 @@
 DP Matrix:
-     	|  0	|  1	|  2	|  3	|  4	|  5	|  6	|  7	|  8	|  9	| 10	| 11	| 12	|
--  	    |  0	|  0	|  0	|  0	|  0	|  0	|  0	|  0	|  0	|  0	|  0	|  0	|  0	|
-Star A	|  0	|  0	|  0	|  0	|  0	|  0	| 60	| 60	| 60	| 60	| 60	| 60	| 60	|
-Star B	|  0	|  0	|  0	|  0	| 20	| 20	| 60	| 60	| 60	| 60	| 80	| 80	| 80	|
-Star C	|  0	|  0	|  0	| 45	| 45	| 45	| 60	| 65	| 65	|105	|105	|105	|105	|
-Star D	|  0	|  0	|  0	| 45	| 45	| 45	| 60	| 65	| 65	|105	|105	|105	|105	|
-Star E	|  0	|  0	|  0	| 45	| 45	| 45	| 60	| 65	| 90	|105	|105	|105	|110	|
-Star F	|  0	|  0	|  0	| 45	| 80	| 80	| 80	|125	|125	|125	|140	|145	|170	|
+    	|   0	|  50	| 100	| 150	| 200	| 250	| 300	| 350	| 400	| 450	| 500	| 550	| 600	| 650	| 700	| 750	| 800	|
+-   	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|   0	|
+Star A	|   0	|   0	|   0	|   0	|   0	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	|
+Star B	|   0	|   0	|   0	|   0	|   0	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	|
+Star C	|   0	|   0	|   0	|   0	|   0	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	| 732	|
+Star D	|   0	|   0	| 632	| 632	| 632	| 732	| 732	|1364	|1364	|1364	|1364	|1364	|1364	|1364	|1364	|1364	|1364	|
+Star E	|   0	|   0	| 632	| 632	| 632	| 740	|1372	|1372	|1372	|1472	|1472	|2104	|2104	|2104	|2104	|2104	|2104	|
 
 Selected Stars Matrix:
--  	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|
-Star A	|[]	|[]	|[]	|[]	|[]	|[]	|[S1 ]	|[S1 ]	|[S1 ]	|[S1 ]	|[S1 ]	|[S1 ]	|[S1 ]	|
-Star B	|[]	|[]	|[]	|[]	|[S2 ]	|[S2 ]	|[S1 ]	|[S1 ]	|[S1 ]	|[S1 ]	|[S1 S2 ]	|[S1 S2 ]	|[S1 S2 ]	|
-Star C	|[]	|[]	|[]	|[S3 ]	|[S3 ]	|[S3 ]	|[S1 ]	|[S2 S3 ]	|[S2 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|
-Star D	|[]	|[]	|[]	|[S3 ]	|[S3 ]	|[S3 ]	|[S1 ]	|[S2 S3 ]	|[S2 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|
-Star E	|[]	|[]	|[]	|[S3 ]	|[S3 ]	|[S3 ]	|[S1 ]	|[S2 S3 ]	|[S3 S5 ]	|[S1 S3 ]	|[S1 S3 ]	|[S1 S3 ]	|[S2 S3 S5 ]	|
-Star F	|[]	|[]	|[]	|[S3 ]	|[S6 ]	|[S6 ]	|[S6 ]	|[S3 S6 ]	|[S3 S6 ]	|[S3 S6 ]	|[S1 S6 ]	|[S2 S3 S6 ]	|[S3 S5 S6 ]	|
+-   	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|[]	|
+Star A	|[]	|[]	|[]	|[]	|[]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|
+Star B	|[]	|[]	|[]	|[]	|[]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|
+Star C	|[]	|[]	|[]	|[]	|[]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|[Star A ]	|
+Star D	|[]	|[]	|[Star D ]	|[Star D ]	|[Star D ]	|[Star A ]	|[Star A ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|[Star A Star D ]	|
+Star E	|[]	|[]	|[Star D ]	|[Star D ]	|[Star D ]	|[Star E ]	|[Star D Star E ]	|[Star D Star E ]	|[Star D Star E ]	|[Star A Star E ]	|[Star A Star E ]	|[Star A Star D Star E ]	|[Star A Star D Star E ]	|[Star A Star D Star E ]	|[Star A Star D Star E ]	|[Star A Star D Star E ]	|[Star A Star D Star E ]	|

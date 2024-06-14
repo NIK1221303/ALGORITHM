@@ -16,7 +16,7 @@ public class Main {
     public static DataTwo dataTwo;
     public static SelectionSort selection;
     public static HeapSort heap;
-    //public static StarRoutes starRoutes;
+    public static StarRoutes starRoutes;
     public static Knapsack knapsack;
     public static Kruskal kruskal;
     public static Dijkstra dijkstra;
@@ -28,11 +28,11 @@ public class Main {
         dataTwo = new DataTwo();
         heap = new HeapSort(dataOne);
         selection = new SelectionSort(dataOne);
-        //starRoutes = new StarRoutes(dataTwo);
-        //kruskal = new Kruskal(starRoutes);
-        //dijkstra = new Dijkstra(starRoutes);
+        starRoutes = new StarRoutes(dataTwo);
+        kruskal = new Kruskal(starRoutes);
+        dijkstra = new Dijkstra(starRoutes);
 
-        knapsack = new Knapsack(dataTwo, 12);
+        knapsack = new Knapsack(dataTwo, 800);
     }
 
     public static void main(String[] args) throws IOException {

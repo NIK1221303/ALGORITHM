@@ -39,8 +39,8 @@ public class HeapSort {
 
             long endTime = System.nanoTime();
 
-            long duration = (endTime - startTime); // in nanoseconds
-            System.out.println("Execution time in nanoseconds: " + (duration) + "ns\n");
+            double duration = (endTime - startTime); // in milliseconds
+            System.out.println("Execution time in milliseconds: " + (duration/1000000) + "ms\n");
 
             // Append sorted set to text file
             try (FileWriter fileWriter = new FileWriter("HeapSort/HeapAlgo.txt", true)) { // true for append mode
@@ -80,10 +80,7 @@ public class HeapSort {
 
         heapify(data, child, heapsize);
         }
-
-        
         return;
-
     }
 
     public void sortHeap(ArrayList<Integer> data1, int n) { // largest at root , put into last index, minus 1 heapsize,

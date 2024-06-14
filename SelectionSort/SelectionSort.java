@@ -135,8 +135,8 @@ public class SelectionSort {
             }
 
             long endTime = System.nanoTime();
-            long duration = (endTime - startTime); // in nanoseconds
-            System.out.println("Execution time in nanoseconds: " + (duration) + "ns\n");
+            double duration = (endTime - startTime); // in milliseconds
+            System.out.println("Execution time in milliseconds: " + (duration/1000000) + "ms\n");
 
             // Append sorted set to text file
             try (FileWriter fileWriter = new FileWriter("SelectionSort/SelectionAlgo.txt", true)) { // true for append

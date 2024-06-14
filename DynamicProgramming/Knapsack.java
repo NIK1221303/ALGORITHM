@@ -31,20 +31,7 @@ public class Knapsack {
     public void solve() throws IOException {
         int totalStar = stars.size();
 
-        // for (int star = 1; star <= totalStar ; star++) {
-        // for (int capacity = 0; capacity <= maxCapacity; capacity++) {
-        // if (stars.get(star - 1).getWeight() <= capacity) {
-        // // If Star weight is lower than the current capacity
-        // tabulationTable[star][capacity] = Math.max(tabulationTable[star -
-        // 1][capacity], tabulationTable[star - 1][capacity - stars.get(star -
-        // 1).getWeight()] + stars.get(star - 1).getProfit());
-        // } else {
-        // // If Star weight is bigger than current capacity
-        // // Copy previous data to current index
-        // tabulationTable[star][capacity] = tabulationTable[star - 1][capacity];
-        // }
-        // }
-        // }
+        long startTime = System.nanoTime();
 
         for (int star = 0; star < totalStar; star++) {
             for (int capacity = 0; capacity <= maxCapacity; capacity++) {
@@ -73,6 +60,10 @@ public class Knapsack {
             }
         }
 
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime); // in nanoseconds
+        System.out.println("Execution time in nanoseconds: " + (duration) + "ns\n");
+
         // Get combination of Star resulting in highest profit at highest capacity
         int capacity = maxCapacity;
         for (int star = totalStar; star > 0 && capacity > 0; star--) {
@@ -83,7 +74,7 @@ public class Knapsack {
         }
 
         printResult("DynamicProgramming/result.txt");
-        printMatrix("DynamicProgramming/matrix.txt",1);
+        printMatrix("DynamicProgramming/matrix.txt",50);
     }
 
     private void printResult(String filename) throws IOException {
@@ -96,42 +87,6 @@ public class Knapsack {
             writer.write(String.format("Total profit: %d\n", tabulationTable[stars.size()][maxCapacity]));
         }
     }
-
-    // private void printMatrix(String filename) throws IOException {
-    // try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-    // writer.write("DP Matrix:\n");
-    // for (int i = 0; i <= stars.size(); i++) {
-    // for (int weight = 0; weight <= maxCapacity; weight++) {
-    // writer.write(tabulationTable[i][weight] + "\t");
-    // }
-    // writer.write("\n");
-    // }
-    // }
-    // }
-
-    // private void printMatrix(String filename) throws IOException {
-    //     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-    //         writer.write("DP Matrix:\n");
-    //         for (int i = 0; i <= stars.size(); i++) {
-    //             for (int weight = 0; weight <= maxCapacity; weight++) {
-    //                 writer.write(tabulationTable[i][weight] + "\t");
-    //             }
-    //             writer.write("\n");
-    //         }
-
-    //         writer.write("\nSelected Stars Matrix:\n");
-    //         for (int i = 0; i <= stars.size(); i++) {
-    //             for (int weight = 0; weight <= maxCapacity; weight++) {
-    //                 writer.write("[ ");
-    //                 for (Star star : chosenStars[i][weight]) {
-    //                     writer.write("Star " + (stars.indexOf(star) + 1) + " ");
-    //                 }
-    //                 writer.write("]\t");
-    //             }
-    //             writer.write("\n");
-    //         }
-    //     }
-    // }
 
     private void printMatrix(String filename, int interval) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
@@ -179,16 +134,12 @@ public class Knapsack {
                 for (int weight = 0; weight <= maxCapacity; weight += interval) {
                     writer.write("[");
                     for (Star star : chosenStars[i][weight]) {
-                        writer.write("S" + (stars.indexOf(star) + 1) + " ");
+                        writer.write((star.getName()) + " ");
                     }
                     writer.write("]\t|");
                 }
                 writer.write("\n");
             }
         }
-    }
-    
-    
-
-    
+    } 
 }

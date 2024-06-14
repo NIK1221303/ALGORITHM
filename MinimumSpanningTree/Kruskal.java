@@ -39,11 +39,19 @@ public class Kruskal {
         Collections.sort(edges);
         UnionFind uf = new UnionFind(stars);
 
+        long startTime = System.nanoTime();
+
         for (Edge edge : edges) {
             if (uf.union(edge.star1, edge.star2)) {
                 minSpanTree.add(edge);
             }
         }
+
+        long endTime = System.nanoTime();
+
+        double duration = (endTime - startTime); // in milliseconds
+        System.out.println("Execution time in milliseconds: " + (duration/1000000) + "ms\n");
+
         printResult("MinimumSpanningTree/mst.txt");
     }
 
