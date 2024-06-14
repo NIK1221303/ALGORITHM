@@ -18,4 +18,3 @@ public class Edge implements Comparable<Edge> {
         return this.distance - other.distance;
     }
 }
-

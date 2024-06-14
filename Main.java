@@ -16,21 +16,21 @@ public class Main {
     public static DataTwo dataTwo;
     public static SelectionSort selection;
     public static HeapSort heap;
-    //public static StarRoutes starRoutes;
+    public static StarRoutes starRoutes;
     public static Knapsack knapsack;
     public static Kruskal kruskal;
     public static Dijkstra dijkstra;
 
     public Main() {
         new GenDataOne();
-        //new GenDataTwo();
+        new GenDataTwo();
         dataOne = new DataOnes();
         dataTwo = new DataTwo();
         heap = new HeapSort(dataOne);
         selection = new SelectionSort(dataOne);
-        //starRoutes = new StarRoutes(dataTwo);
-        //kruskal = new Kruskal(starRoutes);
-        //dijkstra = new Dijkstra(starRoutes);
+        starRoutes = new StarRoutes(dataTwo);
+        kruskal = new Kruskal(starRoutes);
+        dijkstra = new Dijkstra(starRoutes);
 
         knapsack = new Knapsack(dataTwo, 12);
     }
