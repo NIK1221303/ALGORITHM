@@ -1,5 +1,8 @@
 package ShortestPaths;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import MinimumSpanningTree.Edge;
 import DatasetTwo.StarRoutes;
@@ -54,7 +57,7 @@ public class Dijkstra {
     }
 
     public void calcShortestDistance(String currentNode, int currentDist) {
-        int previous = INFINITE;
+        int currentShortest = INFINITE;
         String nextNode = null;
         visited.add(currentNode); // Star A
 
@@ -67,8 +70,8 @@ public class Dijkstra {
                 }
 
                 //
-                if (previous > edge.distance + currentDist) { //
-                    previous = edge.distance + currentDist; // update currentDist
+                if (currentShortest > edge.distance + currentDist) { //
+                    currentShortest = edge.distance + currentDist; // update currentDist
                     nextNode = edge.star2; // assign node with shortest distance edge
 
                     for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
@@ -77,9 +80,9 @@ public class Dijkstra {
                             continue;
                         }
 
-                        if (entry.getValue() < previous) {
+                        if (entry.getValue() < currentShortest) {
 
-                            previous = entry.getValue();
+                            currentShortest = entry.getValue();
                             nextNode = entry.getKey();
 
                         }
@@ -98,37 +101,39 @@ public class Dijkstra {
                     continue;
                 }
 
-                if (entry.getValue() < previous) {
+                if (entry.getValue() < currentShortest) {
 
-                    previous = entry.getValue();
+                    currentShortest = entry.getValue();
                     nextNode = entry.getKey();
 
                 }
 
             }
             if (nextNode != null) {
-                calcShortestDistance(nextNode, previous);
+                calcShortestDistance(nextNode, currentShortest);
             }
             return;
         }
 
-        calcShortestDistance(nextNode, previous);// should only call this when done calculated all min distance to every
+        calcShortestDistance(nextNode, currentShortest);// should only call this when done calculated all min distance to every
                                                  // edge
 
     }
 
-    public void shortestPath(String startNode) {
-        int infinite = INFINITE;
-        initializeEdges();
-        InitializeToInfinite(infinite); // initialize shortest distance to infinite first
+    private void printResult(String filename) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            writer.write("Shortest Path:\n");
+            for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
+                writer.write(String.format("%s - %s: %d\n","Star A" , entry.getKey() ,entry.getValue()));
+            }
+        }
+    }
+
+    public void shortestPath(String startNode) throws IOException{
+        initializeEdges(); // initialize all edges for every Star
+        InitializeToInfinite(INFINITE); // initialize shortest distance to infinite first
         shortestDist.put(startNode, 0); // set start node distance to 0
         calcShortestDistance(startNode, 0); // start calculate shortest distance
-
-        // this is output that need to store in
-        // txt file-------------------------------------------------
-        for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
-            System.out.println("Shortest Distance from Star A to " + entry.getKey() + ": " + entry.getValue());
-        }
-        // ------------------------------------------------------------------------------------------
+        printResult("ShortestPaths/ShortestPath.txt");
     }
 }

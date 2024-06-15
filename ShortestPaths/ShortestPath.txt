@@ -1,0 +1,21 @@
+Shortest Path:
+Star A - Star A: 0
+Star A - Star D: 456
+Star A - Star E: 78
+Star A - Star B: 232
+Star A - Star C: 693
+Star A - Star H: 413
+Star A - Star I: 410
+Star A - Star F: 351
+Star A - Star G: 848
+Star A - Star L: 393
+Star A - Star M: 74
+Star A - Star J: 1117
+Star A - Star K: 520
+Star A - Star P: 986
+Star A - Star Q: 178
+Star A - Star N: 624
+Star A - Star O: 718
+Star A - Star T: 747
+Star A - Star R: 270
+Star A - Star S: 810

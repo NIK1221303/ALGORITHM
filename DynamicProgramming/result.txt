@@ -1,5 +1,7 @@
 Selected stars:
+Name: Star J, Weight: 77, Profit: 336
+Name: Star F, Weight: 46, Profit: 346
 Name: Star E, Weight: 203, Profit: 740
 Name: Star D, Weight: 92, Profit: 632
 Name: Star A, Weight: 223, Profit: 732
-Total profit: 2104
+Total profit: 2786
