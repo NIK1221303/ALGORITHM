@@ -11,6 +11,7 @@ public class GenDataOne {
         generateData();
     }
 
+    // Generate Ranoom Numbers with boundary (lower than 700)
     private void generateData() {
         boolean flag = false;
         Random rand = new Random(1211103426);
@@ -89,7 +90,7 @@ public class GenDataOne {
         }
     }
 
-    // 
+    // Ensure number following student ID
     private static boolean check(int number) {
 
         String result = String.valueOf(number);

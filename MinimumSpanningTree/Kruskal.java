@@ -49,7 +49,7 @@ public class Kruskal {
                 minSpanTree.add(edge);
             }
         }
-        writeResult("MinimumSpanningTree/mst.txt"); //Output
+        writeResult("MinimumSpanningTree/MinimumSpanningTree.txt"); //Output
     }
 
     // Write the MST result

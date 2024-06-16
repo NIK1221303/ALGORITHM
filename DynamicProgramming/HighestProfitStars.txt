@@ -1,4 +1,4 @@
-Selected stars:
+==== Highest Profit Stars ====
 Name: Star J, Weight: 77, Profit: 336
 Name: Star F, Weight: 46, Profit: 346
 Name: Star E, Weight: 203, Profit: 740

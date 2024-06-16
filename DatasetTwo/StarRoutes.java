@@ -159,10 +159,12 @@ public class StarRoutes {
         return starRoutes;
     }
 
+    // Return all connected Star
     public Map<String, Integer> getConnectedStars(String starName) {
         return starRoutes.getOrDefault(starName, Collections.emptyMap());
     }
 
+    // Return distance between two Stars
     public Integer getDistanceBetween(String star1, String star2) {
         return starRoutes.getOrDefault(star1, Collections.emptyMap()).get(star2);
     }

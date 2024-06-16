@@ -53,7 +53,6 @@ public class Dijkstra {
                 }
             }
         }
-
     }
 
     public void calcShortestDistance(String currentNode, int currentDist) {
@@ -62,31 +61,22 @@ public class Dijkstra {
         visited.add(currentNode); // Star A
 
         for (Edge edge : getEdges(currentNode)) { // Get edges of Star A
-
             if (!visited.contains(edge.star2)) { // If the edge is not inside visited,
-
                 if (edge.distance + currentDist < shortestDist.get(edge.star2)) {
                     shortestDist.put(edge.star2, edge.distance + currentDist); // update min distance
                 }
-
                 //
                 if (currentShortest > edge.distance + currentDist) { //
                     currentShortest = edge.distance + currentDist; // update currentDist
                     nextNode = edge.star2; // assign node with shortest distance edge
-
                     for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
-
                         if (visited.contains(entry.getKey())) {
                             continue;
                         }
-
                         if (entry.getValue() < currentShortest) {
-
                             currentShortest = entry.getValue();
                             nextNode = entry.getKey();
-
                         }
-
                     }
                 }
             }
@@ -97,17 +87,12 @@ public class Dijkstra {
             for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
 
                 if (visited.contains(entry.getKey())) {
-
                     continue;
                 }
-
                 if (entry.getValue() < currentShortest) {
-
                     currentShortest = entry.getValue();
                     nextNode = entry.getKey();
-
                 }
-
             }
             if (nextNode != null) {
                 calcShortestDistance(nextNode, currentShortest);
@@ -115,21 +100,20 @@ public class Dijkstra {
             return;
         }
 
-        calcShortestDistance(nextNode, currentShortest);// should only call this when done calculated all min distance to every
-                                                 // edge
-
+        // should only call this when done calculated all min distance to every edge
+        calcShortestDistance(nextNode, currentShortest);
     }
 
     private void printResult(String filename) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("Shortest Path:\n");
             for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
-                writer.write(String.format("%s - %s: %d\n","Star A" , entry.getKey() ,entry.getValue()));
+                writer.write(String.format("%s - %s: %d\n", "Star A", entry.getKey(), entry.getValue()));
             }
         }
     }
 
-    public void shortestPath(String startNode) throws IOException{
+    public void shortestPath(String startNode) throws IOException {
         initializeEdges(); // initialize all edges for every Star
         InitializeToInfinite(INFINITE); // initialize shortest distance to infinite first
         shortestDist.put(startNode, 0); // set start node distance to 0

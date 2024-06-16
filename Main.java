@@ -41,14 +41,14 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         System.out.println(
-                "Choose Algorithm:\n1. Selection Sort\n2. Heap Sort\n3. Shortest Path\n4. Minimum Spanning Tree\n5. Dynamic Programming");
+                "Choose Algorithm:\n1. Heap Sort\n2. Selection Sort\n3. Shortest Path\n4. Minimum Spanning Tree\n5. Dynamic Programming");
 
         int choice = input.nextInt();
 
         if (choice == 1)
-            selection.sort();
-        else if (choice == 2)
             heap.sort();
+        else if (choice == 2)
+            selection.sort();
         else if (choice == 3) {
             dijkstra.shortestPath("Star A");
         } else if (choice == 4) {

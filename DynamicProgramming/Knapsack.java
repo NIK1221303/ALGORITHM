@@ -75,13 +75,13 @@ public class Knapsack {
             }
         }
 
-        printResult("DynamicProgramming/result.txt");
-        printMatrix("DynamicProgramming/matrix.txt",50);
+        saveHighestProfitStars("DynamicProgramming/HighestProfitStars.txt");
+        saveTabulationTable("DynamicProgramming/TabulationTable.txt",50);
     }
 
-    private void printResult(String filename) throws IOException {
+    private void saveHighestProfitStars(String filename) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            writer.write("Selected stars:\n");
+            writer.write("==== Highest Profit Stars ====\n");
             for (Star star : resultStars) {
                 writer.write(String.format("Name: %s, Weight: %d, Profit: %d\n", star.getName(), star.getWeight(),
                         star.getProfit()));
@@ -90,9 +90,9 @@ public class Knapsack {
         }
     }
 
-    private void printMatrix(String filename, int interval) throws IOException {
+    private void saveTabulationTable(String filename, int interval) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            writer.write("DP Matrix:\n");
+            writer.write("==== Tabulation Table ====\n");
     
             // Find the maximum value in the tabulation table for dynamic spacing
             int maxValue = 0;
@@ -126,7 +126,7 @@ public class Knapsack {
                 writer.write("\n");
             }
     
-            writer.write("\nSelected Stars Matrix:\n");
+            writer.write("\n==== Chosen Stars Table ====\n");
             for (int i = 0; i <= stars.size(); i++) {
                 if (i == 0) {
                     writer.write(String.format("%-" + maxDigits + "s", "-") + "\t|");
