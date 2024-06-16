@@ -69,14 +69,14 @@ public class Dijkstra {
                 if (currentShortest > edge.distance + currentDist) { //
                     currentShortest = edge.distance + currentDist; // update currentDist
                     nextNode = edge.star2; // assign node with shortest distance edge
-                    for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
-                        if (visited.contains(entry.getKey())) {
-                            continue;
-                        }
-                        if (entry.getValue() < currentShortest) {
-                            currentShortest = entry.getValue();
-                            nextNode = entry.getKey();
-                        }
+                }
+                for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
+                    if (visited.contains(entry.getKey())) {
+                        continue;
+                    }
+                    if (entry.getValue() < currentShortest) {
+                        currentShortest = entry.getValue();
+                        nextNode = entry.getKey();
                     }
                 }
             }
@@ -84,19 +84,6 @@ public class Dijkstra {
 
         if (nextNode == null) {
 
-            for (Map.Entry<String, Integer> entry : shortestDist.entrySet()) {
-
-                if (visited.contains(entry.getKey())) {
-                    continue;
-                }
-                if (entry.getValue() < currentShortest) {
-                    currentShortest = entry.getValue();
-                    nextNode = entry.getKey();
-                }
-            }
-            if (nextNode != null) {
-                calcShortestDistance(nextNode, currentShortest);
-            }
             return;
         }
 

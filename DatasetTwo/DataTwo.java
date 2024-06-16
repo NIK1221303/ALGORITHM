@@ -55,14 +55,14 @@ public class DataTwo {
         return starList;
     }
 
-    // Calculate distance between two Stars  
+    // Calculate distance between two Stars
     public Integer getStarDistance(String oriStar, String destStar) {
 
         // Distance Formula
         double distance = Math.sqrt(
                 (Math.pow((getStar(destStar).getX() - getStar(oriStar).getX()), 2)) +
-                (Math.pow((getStar(destStar).getY() - getStar(oriStar).getY()), 2)) +
-                (Math.pow((getStar(destStar).getZ() - getStar(oriStar).getZ()), 2)));
+                        (Math.pow((getStar(destStar).getY() - getStar(oriStar).getY()), 2)) +
+                        (Math.pow((getStar(destStar).getZ() - getStar(oriStar).getZ()), 2)));
 
         return (int) distance;
     }

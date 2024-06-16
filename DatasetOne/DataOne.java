@@ -1,4 +1,5 @@
 package DatasetOne;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,8 +15,8 @@ public class DataOne {
     public void loadData(String line) {
         data = new ArrayList<>();
         Arrays.stream(line.replaceAll("[\\[\\]]", "").split(", "))
-              .mapToInt(Integer::parseInt)
-              .forEach(data::add);
+                .mapToInt(Integer::parseInt)
+                .forEach(data::add);
     }
 
     // Get a set

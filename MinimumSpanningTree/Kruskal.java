@@ -37,10 +37,10 @@ public class Kruskal {
         }
     }
 
-    // Find the Minimum Spanning Tree using Kruskal's algortim 
+    // Find the Minimum Spanning Tree using Kruskal's algortim
     public void findMinimumSpanningTree() throws IOException {
-        Collections.sort(edges);                // Sort edges by distance
-        UnionFind uf = new UnionFind(stars);    // Initialize the UnionFind structure
+        Collections.sort(edges); // Sort edges by distance
+        UnionFind uf = new UnionFind(stars); // Initialize the UnionFind structure
 
         // Process each edge
         for (Edge edge : edges) {
@@ -49,7 +49,7 @@ public class Kruskal {
                 minSpanTree.add(edge);
             }
         }
-        writeResult("MinimumSpanningTree/MinimumSpanningTree.txt"); //Output
+        writeResult("MinimumSpanningTree/MinimumSpanningTree.txt"); // Output
     }
 
     // Write the MST result

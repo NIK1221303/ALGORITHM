@@ -60,8 +60,8 @@ public class GenDataTwo {
     private static int genRandomValue(int minDigits, int maxDigits, String starName, int randomValue) {
         // Allows different randomizer data
         Random rand = new Random(starName.hashCode() + randomValue);
-        //1221303804 + 1211100965 = 2432404769
-        Integer[] numbers = { 0, 2, 3 ,4, 6, 7, 9};
+        // 1221303804 + 1211100965 = 2432404769
+        Integer[] numbers = { 0, 2, 3, 4, 6, 7, 9 };
 
         // Determine the number of digits randomly within the specified range
         int numDigits = rand.nextInt((maxDigits - minDigits) + 1) + minDigits;

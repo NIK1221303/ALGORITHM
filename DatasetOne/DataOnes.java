@@ -1,4 +1,5 @@
 package DatasetOne;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class DataOnes {
                 }
                 lineIndex++;
             }
-        
+
         } catch (IOException e) {
             System.out.println(e);
         }
@@ -54,4 +55,3 @@ public class DataOnes {
         }
     }
 }
-
